@@ -1,0 +1,117 @@
+{% extends 'homePage/login.html' %}
+
+
+{% block forms %}
+
+    <div class="panel-heading">Register</div>
+        <div class="panel-body">
+          <form method="post" >
+              {% csrf_token %}
+
+              <div class="row">
+                  <div class="col-md-6">
+                      <div class="form-group">
+              <div class="form-label-group">
+                  <label for="inputfname">First Name</label>
+                <input name="reg-fname" type="text" id="inputfname" class="form-control" placeholder="First Name" required="required" autofocus="autofocus">
+              </div>
+            </div>
+                  </div>
+
+                  <div class="col-md-6">
+                      <div class="form-group">
+              <div class="form-label-group">
+                  <label for="inputlname">Last Name</label>
+                <input name="reg-lname" type="text" id="inputlname" class="form-control" placeholder="Last Name" autofocus="autofocus">
+
+              </div>
+            </div>
+                  </div>
+              </div>
+
+                              <div class="form-group">
+              <div class="form-label-group">
+                  <label for="inputuid">UserID</label>
+                <input name="reg-uid" type="text" id="inputuid" class="form-control" placeholder="User ID" required="required" autofocus="autofocus">
+
+              </div>
+            </div>
+
+
+                <div class="row">
+                    <div class="col-md-4">
+                         <div class="form-group">
+              <div class="form-label-group">
+                  <label for="inputphone">Phone </label>
+                <input name="reg-phone" type="text" id="inputphone" class="form-control" placeholder="Phone Number" required="required" autofocus="autofocus">
+
+              </div>
+            </div>
+
+                    </div>
+                    <div class="col-md-8">
+                        <div class="form-group">
+              <div class="form-label-group">
+                  <label for="inputEmail">Email address</label>
+                <input name="reg-email" type="email" id="inputEmail" class="form-control" placeholder="Email address" required="required" autofocus="autofocus">
+
+              </div>
+            </div>
+                    </div>
+                </div>
+
+
+              <div class="row">
+                  <div class="col-md-6">
+                      <div class="form-group">
+              <div class="form-label-group">
+                  <label for="inputPassword">Password</label>
+                <input name="reg-pass" type="password" id="inputPassword" class="form-control" placeholder="Password" required="required">
+
+              </div>
+            </div>
+                  </div>
+                  <div class="col-md-6">
+                      <div class="form-group">
+              <div class="form-label-group">
+                  <label for="inputPassword">Confirm Password</label>
+                <input type="password" id="inputPassword" class="form-control" placeholder="Confirm Password" required="required">
+
+              </div>
+            </div>
+                  </div>
+              </div>
+
+
+
+
+
+              <div class="form-group">
+              <div class="form-label-group">
+                  <label for="inputcat">Category</label>
+                  <select id="inputcat" class="form-control" name="reg-category" required="required" autofocus="autofocus">
+                      <option value="alumni" class="active">Alumni</option>
+                      <option value="student">Student</option>
+
+                  </select>
+
+              </div>
+            </div>
+
+
+              <!--
+
+            -->
+
+            <input class="btn btn-primary btn-block" type="submit" value="Submit">
+              <input class="btn btn-primary btn-block" type="reset" value="Reset">
+          </form>
+        <div >
+            <a class=" small text-left" href="{% url 'homePage:login' %}">Already Registered?</a>
+              &nbsp &nbsp  &nbsp &nbsp
+            <a class=" small text-right" href="forgot-password.html">Forgot Password</a>
+          </div>
+        </div>
+
+
+{% endblock %}
