@@ -1,0 +1,86 @@
+
+
+     {% extends "homePage/index.html" %}
+
+        {% block page %}
+ <body style="background: #333333; " id="myPage">
+
+
+             <div >
+                <img class="img img-rounded img-responsive" src="../../static/homePage/images/AdhamyaLogo.png" alt="logo" style="margin-left: auto;margin-right: auto;">
+            </div>
+
+
+            <div class="container-fluid  row" >
+
+                <div class="col-md-4 col-md-offset-4">
+                     <div class="panel panel-default" style="background-color:white;border: #555555 3px solid; border-radius: 5px;">
+
+                         {% block forms %}
+                         <div class="panel-heading">Login</div>
+        <div class="panel-body">
+          <form method="post">
+              {% if error %}
+              <div class="alert alert-danger">
+                  {{ error }}
+              </div>
+              {% endif %}
+          {% if emailnotexist %}
+              <div class="alert alert-warning">
+                  {{ emailnotexist }}
+              </div>
+              {% endif %}
+
+          {% if regsuccess %}
+              <div class="alert alert-warning">
+              {{ regsuccess }}
+              </div>
+          {% endif %}
+              {% csrf_token %}
+            <div class="form-group">
+              <div class="form-label-group">
+                  <label for="inputEmail">Email address</label>
+                <input name="login-email" type="email" id="inputEmail" class="form-control" placeholder="Email address" required="required" autofocus="autofocus">
+
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="form-label-group">
+                  <label for="inputPassword">Password</label>
+                <input name="login-password" type="password" id="inputPassword" class="form-control" placeholder="Password" required="required">
+
+              </div>
+            </div>
+
+            <input class="btn btn-primary btn-block" type="submit" value="Login">
+              <input class="btn btn-primary btn-block" type="reset" value="Reset">
+          </form>
+          <div >
+            <a class=" small text-left" href="{% url 'homePage:register' %}">Register an Account</a>
+              &nbsp &nbsp  &nbsp &nbsp
+            <a class=" small text-right" href="forgot-password.html">Forgot Password?</a>
+          </div>
+        </div>
+
+                             {% endblock %}
+                     </div>
+
+
+                </div>
+
+</div>
+
+ <br/>
+ <br/>
+
+ <!-- Footer -->
+<footer class="text-center">
+  <a class="up-arrow" href="#myPage" data-toggle="tooltip" title="TO TOP">
+    <span class="glyphicon glyphicon-chevron-up"></span>
+  </a><br><br>
+  <p>© ADHAMYA - THE CULTURAL ASSOCIATION OF UVCE </p>
+</footer>
+
+
+ </body>
+          {% endblock %}

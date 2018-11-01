@@ -1,0 +1,24 @@
+{% extends 'homePage/login.html' %}
+
+
+{% block forms %}
+
+    <div>
+        {% if subcriptionsuccess %}
+        <div class="alert alert-success" style="margin-bottom: 0;">
+    {{ subcriptionsuccess }}
+    </div>
+        {% endif %}
+
+    {% if exists %}
+        <div class="alert alert-warning" style="margin-bottom: 0;">
+    {{ exists }}
+    </div>
+    {% endif %}
+
+
+    <a href="{% url 'homePage:index' %}" class="btn btn-block">Back to Home Page</a>
+    </div>
+
+
+{% endblock %}
